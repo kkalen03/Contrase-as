@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generador de contraseñas aleatorias y seguras. Elige longitud y tipos de caracteres.">
+  <title>Generador de contraseñas seguras</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Generador de contraseñas</h1>
+      <p class="app__subtitle">Crea contraseñas aleatorias y seguras en un clic.</p>
+    </header>
+
+    <form id="password-form" class="form" novalidate>
+      <section class="result" aria-label="Contraseña generada">
+        <label class="visually-hidden" for="password">Contraseña generada</label>
+        <input id="password" class="result__input" type="password" readonly placeholder="Pulsa «Generar»" autocomplete="off">
+        <button type="button" id="toggle-btn" class="btn btn--ghost" aria-pressed="false">Mostrar</button>
+      </section>
+
+      <section class="strength" aria-label="Fortaleza de la contraseña">
+        <div class="strength__header">
+          <span>Fortaleza</span>
+          <strong id="strength-text" class="strength__text">—</strong>
+        </div>
+        <div class="strength__bar">
+          <div id="strength-fill" class="strength__fill"></div>
+        </div>
+      </section>
+
+      <fieldset class="options">
+        <legend class="options__legend">Opciones</legend>
+
+        <div class="length">
+          <label for="length" class="length__label">Longitud: <output id="length-output" for="length">16</output></label>
+          <input id="length" class="length__range" type="range" min="4" max="64" value="16">
+        </div>
+
+        <ul class="switches">
+          <li class="switches__item">
+            <input id="opt-upper" class="switch" type="checkbox" checked>
+            <label for="opt-upper">Mayúsculas (A-Z)</label>
+          </li>
+          <li class="switches__item">
+            <input id="opt-lower" class="switch" type="checkbox" checked>
+            <label for="opt-lower">Minúsculas (a-z)</label>
+          </li>
+          <li class="switches__item">
+            <input id="opt-numbers" class="switch" type="checkbox" checked>
+            <label for="opt-numbers">Números (0-9)</label>
+          </li>
+          <li class="switches__item">
+            <input id="opt-symbols" class="switch" type="checkbox" checked>
+            <label for="opt-symbols">Símbolos (!@#$…)</label>
+          </li>
+        </ul>
+      </fieldset>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+
+      <div class="actions">
+        <button type="submit" id="generate-btn" class="btn btn--primary">Generar contraseña</button>
+        <button type="button" id="copy-btn" class="btn btn--secondary">Copiar</button>
+        <button type="button" id="clear-btn" class="btn btn--ghost">Limpiar</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+
